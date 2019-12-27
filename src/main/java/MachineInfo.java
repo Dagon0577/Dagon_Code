@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author huangganyan
+ * @author Dagon0577
  * @date 2019/12/27 17:46
  */
 public class MachineInfo {

@@ -3,7 +3,7 @@ import javax.crypto.KeyGenerator;
 import java.security.Key;
 
 /**
- * @author huangganyan
+ * @author Dagon0577
  * @date 2019/12/27 17:08
  */
 public class BlowFish {

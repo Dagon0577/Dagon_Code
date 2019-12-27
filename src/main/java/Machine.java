@@ -1,7 +1,7 @@
 import java.util.UUID;
 
 /**
- * @author huangganyan
+ * @author Dagon0577
  * @date 2019/12/27 16:57
  */
 public class Machine {

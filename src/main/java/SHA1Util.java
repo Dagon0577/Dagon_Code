@@ -3,7 +3,7 @@ import java.security.MessageDigest;
 import java.util.Base64;
 
 /**
- * @author huangganyan
+ * @author Dagon0577
  * @date 2019/12/27 17:05
  */
 public class SHA1Util {

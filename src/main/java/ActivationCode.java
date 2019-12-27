@@ -2,7 +2,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
- * @author huangganyan
+ * @author Dagon0577
  * @date 2019/12/27 17:12
  */
 public class ActivationCode {
