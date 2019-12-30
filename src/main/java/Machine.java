@@ -10,28 +10,28 @@ public class Machine {
     private String cpuid;
     private String mac;
     private String virtualID;
-    private String others;
+    private long time;
     private String activationCode;
     private String data;
 
-    public Machine(String mainboard, String cpuid, String mac, String others) {
+    public Machine(String mainboard, String cpuid, String mac, long time) {
         this.id = UUID.randomUUID();
         this.mainboard = mainboard;
         this.cpuid = cpuid;
         this.mac = mac;
         this.virtualID = null;
-        this.others = others;
+        this.time = time;
         this.activationCode = null;
         this.data = null;
     }
 
-    public Machine(String virtualID, String mac, String others) {
+    public Machine(String virtualID, String mac, long time) {
         this.id = UUID.randomUUID();
         this.mainboard = null;
         this.cpuid = null;
         this.mac = mac;
         this.virtualID = virtualID;
-        this.others = others;
+        this.time = time;
         this.activationCode = null;
         this.data = null;
     }
@@ -76,12 +76,12 @@ public class Machine {
         this.activationCode = activationCode;
     }
 
-    public String getOthers() {
-        return others;
+    public long getTime() {
+        return time;
     }
 
-    public void setOthers(String others) {
-        this.others = others;
+    public void setTime(long time) {
+        this.time = time;
     }
 
     public String getData() {

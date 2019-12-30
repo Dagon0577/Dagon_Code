@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,11 +69,18 @@ public class MachineInfo {
             System.out.println("找不到指定的授权文件");
         }
         Machine machine = null;
+        //日期暂时定死为2025-01-01 00:00:00
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar c = Calendar.getInstance();
+        c.setTime(format.parse("2025-01-01 00:00:00"));
+        Date y = c.getTime();
+        long time = y.getTime();
+
         if (result.containsKey("virtualID")) {
-            machine = new Machine(result.get("virtualID"), result.get("mac"), "");
+            machine = new Machine(result.get("virtualID"), result.get("mac"), time);
         } else {
             machine = new Machine(result.get("mainboard"), result.get("cpuid"), result.get("mac"),
-                    "");
+                    time);
         }
         return machine;
     }
