@@ -2,6 +2,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -12,7 +13,15 @@ public class testCase01 {
 
     @Test public void testCase() throws Exception {
         MachineInfo.generateInfo();
-        Machine machine = MachineInfo.getMachineFromInfo();
+
+        //过期日期暂时定死为2025-01-01 00:00:00
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar c = Calendar.getInstance();
+        c.setTime(format.parse("2025-01-01 00:00:00"));
+        Date y = c.getTime();
+        long time = y.getTime();
+
+        Machine machine = MachineInfo.getMachineFromInfo(time);
         String dataText = ActivationCode.getMachineDataText(machine);
         ActivationCode.setKeyFromInfo(machine);
         ActivationCode.encryData(machine);
@@ -24,7 +33,15 @@ public class testCase01 {
 
     @Test public void testCaseCompare() throws Exception {
         MachineInfo.generateInfo();
-        Machine machine = MachineInfo.getMachineFromInfo();
+
+        //过期日期暂时定死为2025-01-01 00:00:00
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Calendar c = Calendar.getInstance();
+        c.setTime(format.parse("2025-01-01 00:00:00"));
+        Date y = c.getTime();
+        long time = y.getTime();
+
+        Machine machine = MachineInfo.getMachineFromInfo(time);
         String dataText = ActivationCode.getMachineDataText(machine);
         ActivationCode.setKeyFromInfo(machine);
         ActivationCode.encryData(machine);
@@ -32,7 +49,6 @@ public class testCase01 {
         System.out.println("dataText : " + dataText);
 
         //验证日期为当前日期
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date nowDate = new Date();
         format.format(nowDate);
         long nowTime = nowDate.getTime();
